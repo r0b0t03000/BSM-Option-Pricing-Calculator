@@ -8,7 +8,7 @@ Black-Scholes pricing model. Black-Scholes model is a mathematical model develop
 1973 used for pricing European options.
 
 Additionally, the program outputs the estimate of the underlying's volatility based on the selected volatility estimation method. These 
-methods will be discsussed in the following sections of this file. 
+methods will be described in the following sections of this file. 
 
 This program does not use a pre-built BSM library for calculating option prices or Greeks, but instead relies on a manual implementation of 
 the formulas.
@@ -97,6 +97,7 @@ method.
 
 4. After inputs are provided, the program will output the option's **theoretical** price and Greeks.
 ## Example Session (NVDA, as of 22.10.2025)
+
 ```text
 python main.py -ticker NVDA
 Choose option's type: call
@@ -117,5 +118,5 @@ Rho: 0.1974
 
 ## Limitations
 - Program supports only European plain vanilla call and put options.
-- Program assumes constant volatility and interest rates, assumptipn which is often violated in real-world market dynamics.
+- Program assumes constant volatility and interest rates, assumption which is often violated in real-world market dynamics.
 - GARCH implementation is fixed to a (1,1) specification.
