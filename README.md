@@ -1,5 +1,7 @@
 # BSM-Option-Pricing-Calculator
 
+## Video-demo: 
+
 ## Description:
 This is a Python program designed to output a **theoretical** price and Greeks of a plain vanilla call/put European-style option using Black-Scholes pricing model. Black-Scholes model is a mathematical model developed by economists Fischer Black and Myron Scholes in 1973 used for pricing European options.
 
@@ -42,15 +44,20 @@ stored. Finally, volatility is obtained by annualising standard deviation using 
 trading days in a year).
 
 - **GARCH method**:  
-Underlying's volatility is calculated based on the GARCH volatility estimation model. GARCH model is a statistical technique for modeling
-and forecasting financial asset volatility by predicting that the variance of an error term follows an Autoregressive Moving Average (ARMA)
-process. Its core idea is that the estimate of future volatility depends on three parameters: weights assigned to long-run variance of the
-underlying, previous day squared return (shock term), and previous day conditional variance (persistence term).
+The program estimates volatility using a GARCH(1,1) model, a common econometric approach for forecasting financial asset volatility.  
+The model assumes that conditional variance depends on three components:
+  - the long-run average variance of the asset,
+  - the most recent squared return (shock term),
+  - the most recent conditional variance (persistence term).  
+The GARCH model captures volatility clustering and provides a forward-looking volatility estimate.
 
 - **Implied volatility (IV) method**:  
 Underlying's volatility is calculated from the volatility implied by the prices of traded options for the given underlying. Specifically,
 this is done by inputting the current market price of an option (typically a call or put) into an options pricing model, and solving for the
 volatility value that equates the theoretical price to the observed market price.
+If the user selects the IV method, two additional lines of output are shown:
+- **Strike price used in IV estimation**: nearest traded strike to the user’s input.
+- **Expiry date used in IV estimation**: nearest available expiry date to the user’s input.
 
 ## Requirements
 - Python 3.8 or higher
@@ -60,8 +67,13 @@ volatility value that equates the theoretical price to the observed market price
 
 1. Install required packages as per the below:
 ```bash
+pip install yfinance numpy pandas scipy arch
+```
+or
+```bash
 pip install -r requirements.txt
 ```
+
 2. Run the program:
 ```bash
 python main.py -ticker NVDA
@@ -75,7 +87,7 @@ the default ticker "AAPL" for Apple stock will be used instead.
 9, 12)
 - **Option's strike price**: any reasonable option's strike price.
 - **Risk-free rate**: market-aligned risk-free rate reflecting present economic conditions.
-- **Volatility estimation preference**: user may choose realized volatiliy (RV), GARCH, or implied volatility (IV) volatility estimation
+- **Volatility estimation preference**: user may choose realized volatility (RV), GARCH, or implied volatility (IV) volatility estimation
 method.
 
 4. After inputs are provided, the program will output the option's **theoretical** price and Greeks.
@@ -88,7 +100,7 @@ Choose option's strike price: 180
 Choose risk-free rate (ex. 3%): 4
 Choose volatility estimation method among realized vol, GARCH, or implied vol: iv
 Strike price used in IV estimation: 180.0
-Expiry date used in IV estimation (nearest to chosen option's expiration in monts): 2025-12-19
+Expiry date used in IV estimation (nearest to chosen option's expiration in months): 2025-12-19
 Price: $13.2283
 Volatility: 39.59%
 Delta: 0.5219
@@ -97,3 +109,8 @@ Vega: 0.3519
 Theta: -0.123
 Rho: 0.1974
 ```
+
+## Limitations
+- Supports only European plain vanilla call and put options.
+- Assumes constant volatility and interest rates, which are often violated in real-world markets.
+- GARCH implementation is fixed to a (1,1) specification.
