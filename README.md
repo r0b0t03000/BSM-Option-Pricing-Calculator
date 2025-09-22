@@ -3,9 +3,15 @@
 ## Video-demo: 
 
 ## Description:
-This is a Python program designed to output a **theoretical** price and Greeks of a plain vanilla call/put European-style option using Black-Scholes pricing model. Black-Scholes model is a mathematical model developed by economists Fischer Black and Myron Scholes in 1973 used for pricing European options.
+This is a Python program designed to output a **theoretical** price and Greeks of a plain vanilla call/put European-style option using 
+Black-Scholes pricing model. Black-Scholes model is a mathematical model developed by economists Fischer Black and Myron Scholes in 
+1973 used for pricing European options.
 
-This program does not use a pre-built BSM library for calculating option prices or Greeks, but instead relies on a manual implementation of the formulas.
+Additionally, the program outputs the estimate of the underlying's volatility based on the selected volatility estimation method. These 
+methods will be discsussed in the following sections of this file. 
+
+This program does not use a pre-built BSM library for calculating option prices or Greeks, but instead relies on a manual implementation of 
+the formulas.
 
 ## Features
 - Real-time stock data pulled from Yahoo Finance.
@@ -49,7 +55,6 @@ The model assumes that conditional variance depends on three components:
   - the long-run average variance of the asset,
   - the most recent squared return (shock term),
   - the most recent conditional variance (persistence term).  
-The GARCH model captures volatility clustering and provides a forward-looking volatility estimate.
 
 - **Implied volatility (IV) method**:  
 Underlying's volatility is calculated from the volatility implied by the prices of traded options for the given underlying. Specifically,
@@ -101,7 +106,7 @@ Choose risk-free rate (ex. 3%): 4
 Choose volatility estimation method among realized vol, GARCH, or implied vol: iv
 Strike price used in IV estimation: 180.0
 Expiry date used in IV estimation (nearest to chosen option's expiration in months): 2025-12-19
-Price: $13.2283
+Price: 13.2283 USD
 Volatility: 39.59%
 Delta: 0.5219
 Gamma: 0.0114
