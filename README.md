@@ -1,6 +1,6 @@
 # BSM-Option-Pricing-Calculator
 
-## Video-demo: 
+## Video-demo: *coming soon*
 
 ## Description:
 This is a Python program designed to output a **theoretical** price and Greeks of a plain vanilla call/put European-style option using 
