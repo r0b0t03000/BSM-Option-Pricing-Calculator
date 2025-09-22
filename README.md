@@ -44,11 +44,11 @@ trading days in a year).
 - **GARCH method**:  
 Underlying's volatility is calculated based on the GARCH volatility estimation model. GARCH model is a statistical technique for modeling
 and forecasting financial asset volatility by predicting that the variance of an error term follows an Autoregressive Moving Average (ARMA)
-process. It's core idea is that the estimate of future volatility depends on three parameters: weights assigned to long-run variance of the
+process. Its core idea is that the estimate of future volatility depends on three parameters: weights assigned to long-run variance of the
 underlying, previous day squared return (shock term), and previous day conditional variance (persistence term).
 
 - **Implied volatility (IV) method**:  
-Underlying's volatility is calculated from the volatility implied by the prices of traded option's for the given underlying. Specifically,
+Underlying's volatility is calculated from the volatility implied by the prices of traded options for the given underlying. Specifically,
 this is done by inputting the current market price of an option (typically a call or put) into an options pricing model, and solving for the
 volatility value that equates the theoretical price to the observed market price.
 
@@ -64,7 +64,7 @@ pip install -r requirements.txt
 ```
 2. Run the program:
 ```bash
-python project.py -ticker NVDA
+python main.py -ticker NVDA
 ```
 The program is **not limited** to the Nvidia stock ticker; **any ticker supported by the yfinance API** can be used. If no ticker provided, 
 the default ticker "AAPL" for Apple stock will be used instead.
