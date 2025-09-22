@@ -116,6 +116,6 @@ Rho: 0.1974
 ```
 
 ## Limitations
-- Supports only European plain vanilla call and put options.
-- Assumes constant volatility and interest rates, which are often violated in real-world markets.
+- Program supports only European plain vanilla call and put options.
+- Program assumes constant volatility and interest rates, assumptipn which is often violated in real-world market dynamics.
 - GARCH implementation is fixed to a (1,1) specification.
