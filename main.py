@@ -52,7 +52,7 @@ def main():
         print(f"Expiry date used in IV estimation (nearest to chosen option's expiration in monts): {expiry_IV}")
 
     print(f"Option price: {round(price, 4)} USD")
-    print(f"Volatility: {round(sigma*100, 4)}%")
+    print(f"Volatility: {round(sigma*100, 2)}%")
     for g, v in greeks.items():
         print(f"{g.capitalize()}: {round(v, 4)}")
 
