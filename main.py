@@ -53,7 +53,6 @@ def main():
 
     print(f"Option price: ${round(price, 4)}")
     print(f"Volatility: {round(sigma,4)*100}%")
-    print(f"Dividend yield: {q}")
     for g, v in greeks.items():
         print(f"{g.capitalize()}: {round(v, 4)}")
 
